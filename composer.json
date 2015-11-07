@@ -1,0 +1,18 @@
+{
+  "name": "barter-site",
+  "description": "Server-Site for bartering",
+  "require": {
+    "slim/slim": "2"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "~2.3",
+    "codeception/codeception": "~2.1"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jean Perez",
+      "email": "jmperez127@gmail.com"
+    }
+  ]
+}
