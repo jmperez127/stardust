@@ -1,7 +1,7 @@
 <?php
 
 namespace spec;
-
+use application;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 

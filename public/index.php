@@ -1,8 +1,8 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-define('PROJECT_ROOT', realpath(__DIR__ . '/..'));
-require PROJECT_ROOT . '/config/application.php';
+use Config\App\Application as App;
 
-$app = \application\Application::setup();
+define('PROJECT_ROOT', realpath(__DIR__ . '/..'));
+require PROJECT_ROOT . '/config/start.php';
+
+$app = App::setup("development");
 $app->start();
