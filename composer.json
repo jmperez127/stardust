@@ -11,7 +11,8 @@
   },
   "license": "MIT",
   "config": {
-    "bin-dir": "bin"
+    "bin-dir": "bin",
+    "vendor-dir": "vendor/composer"
   },
   "autoload": {
     "psr-4": {

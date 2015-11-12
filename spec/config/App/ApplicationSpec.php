@@ -1,7 +1,13 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: JM
+ * Date: 11/12/2015
+ * Time: 3:03 AM
+ */
 
-namespace spec;
-use application;
+namespace spec\Config\App;
+
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
