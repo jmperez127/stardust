@@ -1,9 +1,4 @@
 suites:
     config_app_suite:
         namespace: Config\App
-        spec_prefix: config_app
-
-    # shortcut for
-    # my_suite:
-    #     namespace: The\Namespace
-#    my_suite: The\Namespace
+        spec_prefix: spec

@@ -10,16 +10,19 @@ class Application
     protected $enviroment;
     private $app;
 
-    private function __construct($env)
+    public function __construct($env = "development")
     {
-        $this->app = new Slim;
+        $this->app = new Slim();
         $this->app->env = $this->enviroment = $env;
     }
 
-    public static function setup($env = self::ENV_DEVELOPMENT)
-    {
-        $application = new Application($env);
-        return $application;
+    public function getEnv(){
+        return $this->enviroment;
+    }
+
+    public function get($path, $action){
+        $this->app->get($path, $action);
+        return $this;
     }
 
     public function start()
@@ -29,9 +32,6 @@ class Application
             error_reporting(E_ALL);
         }
 
-        $this->app->get('/', function () {
-            echo 'Home Page';
-        });
         $this->app->run();
     }
 }
