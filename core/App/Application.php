@@ -1,5 +1,5 @@
 <?php
-namespace Config\App;
+namespace Core\App;
 use Slim\Slim;
 
 
@@ -7,17 +7,17 @@ class Application
 {
     const ENV_DEVELOPMENT = 'development';
 
-    protected $enviroment;
+    protected $environment;
     private $app;
 
     public function __construct($env = "development")
     {
         $this->app = new Slim();
-        $this->app->env = $this->enviroment = $env;
+        $this->app->env = $this->environment = $env;
     }
 
     public function getEnv(){
-        return $this->enviroment;
+        return $this->environment;
     }
 
     public function get($path, $action){
@@ -27,7 +27,7 @@ class Application
 
     public function start()
     {
-        if ($this->enviroment == self::ENV_DEVELOPMENT) {
+        if ($this->environment == self::ENV_DEVELOPMENT) {
             ini_set('display_errors', 1);
             error_reporting(E_ALL);
         }

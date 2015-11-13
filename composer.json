@@ -11,12 +11,11 @@
   },
   "license": "MIT",
   "config": {
-    "bin-dir": "bin",
-    "vendor-dir": "vendor/composer"
+    "bin-dir": "bin"
   },
   "autoload": {
     "psr-4": {
-      "Config\\": "config",
+      "Core\\": "core",
       "": "bin/src"
     }
   },

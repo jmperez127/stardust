@@ -1,4 +1,8 @@
 suites:
-    config_app_suite:
-        namespace: Config\App
+    core_app_suite:
+        namespace: Core\App
+        spec_prefix: spec
+
+    core_router_suite:
+        namespace: Core\Router
         spec_prefix: spec
