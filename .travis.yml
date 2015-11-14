@@ -1,5 +1,9 @@
 language: php
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 php:
   - 5.4
   - 5.5
@@ -15,4 +19,4 @@ install:
   - composer install
 
 script:
-  - bin/phpspec run --config=phpspec.yml --format=pretty
+  - bin/phpspec run
