@@ -1,14 +1,18 @@
 language: php
 
 php:
-  - 5.3
   - 5.4
   - 5.5
   - 5.6
   - hhvm
 
 before_script:
-  - travis_retry composer install --prefer-source --no-interaction --dev
+  - composer self-update
+  - chmod a+x -R bin/
+  - chmod a+x -R vendor/
+
+install:
+  - composer install
 
 script:
-  - phpspec run --config=phpspec.yml --no-interaction
+  - bin/phpspec run --config=phpspec.yml --format=pretty
