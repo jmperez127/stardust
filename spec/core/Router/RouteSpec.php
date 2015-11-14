@@ -30,6 +30,10 @@ class RouteSpec extends ObjectBehavior
         $this->getAction()->shouldReturn("/users/new");
     }
 
+    function it_throws_error_when_registering_a_wrong_route_action(){
+        $this->shouldThrow('\InvalidArgumentException')->duringSetAction("invalid route");
+    }
+
     function it_has_an_array_of_param_names(){
         $this->setAction("/users/:id/post/:post_id/edit");
         $this->getParamNames()->shouldContain(':id');
