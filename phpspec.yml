@@ -6,3 +6,7 @@ suites:
     core_router_suite:
         namespace: Core\Router
         spec_prefix: spec
+
+    core_controller_suite:
+        namespace: Core\Controller
+        spec_prefix: spec

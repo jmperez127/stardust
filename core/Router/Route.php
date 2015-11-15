@@ -2,23 +2,26 @@
 
 namespace Core\Router;
 
+use Core\Controller\BaseController;
 use InvalidArgumentException;
 
 class Route {
     protected $method;
-    protected $action;
+    protected $url;
+    protected $controller;
     protected $param_names = array();
     protected $allowed_methods = array("GET", "POST", "PUT", "DELETE", "PATCH");
+    protected $actionName;
 
     const URL_PARAMS_REGEXP = "/(?!\/):\w+/";
 
     const URL_ROUTE_REGEXP = "/^(?:\/?(?:\/:[a-zA-Z0-9_]+|[a-zA-Z0-9_]+))+\/?$/";
 
-    public function __construct($method = "", $action = "") {
+    public function __construct($method = "", $url = "") {
         if (!empty($method))
             $this->setMethod($method);
-        if (!empty($action))
-            $this->setAction($action);
+        if (!empty($url))
+            $this->setUrl($url);
     }
 
     public function setMethod($method) {
@@ -30,33 +33,49 @@ class Route {
         return $this->method;
     }
 
-    function setAction($action_name) {
-        $this->validateActionName($action_name);
+    function setUrl($url) {
+        $this->validateUrl($url);
 
-        $this->saveParamNames($action_name);
-        $this->action = $action_name;
+        $this->saveParamNames($url);
+        $this->url = $url;
     }
 
-    function getAction() {
-        return $this->action;
+    private function validateUrl($url) {
+        if (!preg_match_all(self::URL_ROUTE_REGEXP, $url))
+            throw new InvalidArgumentException("Invalid Route URL");
+    }
+
+    private function saveParamNames($url) {
+        preg_match_all(self::URL_PARAMS_REGEXP, $url, $matches);
+        foreach ($matches[0] as $match)
+            $this->param_names[] = $match;
+    }
+
+
+    function getUrl() {
+        return $this->url;
     }
 
     function getParamNames() {
         return $this->param_names;
     }
 
-
-    private function saveParamNames($action_name) {
-        preg_match_all(self::URL_PARAMS_REGEXP, $action_name, $matches);
-        foreach ($matches[0] as $match)
-            $this->param_names[] = $match;
+    function setController(BaseController $controller) {
+        $this->$controller = $controller;
     }
 
-    private function validateActionName($action_name) {
-        if (!preg_match_all(self::URL_ROUTE_REGEXP, $action_name))
-            throw new InvalidArgumentException("Invalid Route URL");
+    function setActionName($actionName) {
+        $this->actionName = $actionName;
     }
-    
+
+    function getActionName() {
+        return $this->actionName;
+    }
+
+    function getController() {
+        return $this->controller;
+    }
+
     private function validateMehtodName($method) {
         if (!in_array($method, $this->allowed_methods))
             throw new InvalidArgumentException("Invalid Method");

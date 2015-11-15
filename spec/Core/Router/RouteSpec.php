@@ -25,19 +25,26 @@ class RouteSpec extends ObjectBehavior
         $this->shouldThrow('\InvalidArgumentException')->duringSetMethod("INVALID");
     }
 
-    function it_holds_the_action_name_for_the_requested_url(){
-        $this->setAction("/users/new");
-        $this->getAction()->shouldReturn("/users/new");
+    function it_holds_a_url_definition(){
+        $this->setUrl("/users/new");
+        $this->getUrl()->shouldReturn("/users/new");
     }
 
-    function it_throws_error_when_registering_a_wrong_route_action(){
-        $this->shouldThrow('\InvalidArgumentException')->duringSetAction("invalid route");
+    function it_throws_error_when_registering_a_wrong_url_route(){
+        $this->shouldThrow('\InvalidArgumentException')->duringSetUrl("invalid route");
     }
 
     function it_has_an_array_of_param_names(){
-        $this->setAction("/users/:id/post/:post_id/edit");
+        $this->setUrl("/users/:id/post/:post_id/edit");
         $this->getParamNames()->shouldContain(':id');
         $this->getParamNames()->shouldContain(':post_id');
+    }
+
+    function it_allows_a_reference_to_the_controller_and_action_to_be_set(){
+        $this->setUrl("/users/new");
+        $this->setController("UsersController");
+        $this->setActionName("new");
+        $this->getController()->shouldReturn('UsersController');
     }
 
 }

@@ -18,9 +18,14 @@ class RouterSpec extends ObjectBehavior
     }
 
     function it_allow_new_routes_to_be_added(){
-        $route = new Route("GET", "/users/new");
-        $this->addRoute($route);
+        $this->addRoute(new Route("GET", "/users/new"));
         $this->getRoutes()->shouldHaveCount(1);
+        $this->getRoutes()[0]->getMethod()->shouldReturn("GET");
+    }
+
+    function it_expects_a_controller_when_a_new_route_is_created(){
+        $this->addRoute(new Route("GET", "/users/new"));
+        $this->getControllers()->shouldHaveCount(1);
     }
 
 }
