@@ -51,7 +51,6 @@ class Route {
             $this->param_names[] = $match;
     }
 
-
     function getUrl() {
         return $this->url;
     }

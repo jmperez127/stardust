@@ -1,10 +1,13 @@
 <?php
 
 namespace spec\Core\Router;
+require_once realpath(__DIR__ . '/../..')."/spec_helpers.php";
 
+use Core\App\Application;
 use Core\Router\Route;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use spec\Fixtures\Controllers\UsersController;
 
 class RouterSpec extends ObjectBehavior
 {
@@ -23,8 +26,12 @@ class RouterSpec extends ObjectBehavior
         $this->getRoutes()[0]->getMethod()->shouldReturn("GET");
     }
 
-    function it_expects_a_controller_when_a_new_route_is_created(){
-        $this->addRoute(new Route("GET", "/users/new"));
+    function it_should_assign_a_controller_when_a_new_route_is_created(){
+        Application::setControllersPath(realpath(__DIR__."/../../Fixtures/Controllers"));
+
+        $this->addRoute(new Route("GET", "/users/new"), new UsersController());
+
+        $this->getRoutes()[0]->getController()->shouldReturnAnInstanceOf("UsersController");
         $this->getControllers()->shouldHaveCount(1);
     }
 

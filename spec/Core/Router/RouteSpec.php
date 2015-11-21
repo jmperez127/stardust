@@ -1,10 +1,12 @@
 <?php
 
 namespace spec\Core\Router;
+require_once realpath(__DIR__ . '/../..')."/spec_helpers.php";
 
 use Core\Router;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use spec\Fixtures\Controllers\FixtureController;
 
 class RouteSpec extends ObjectBehavior
 {
@@ -42,9 +44,12 @@ class RouteSpec extends ObjectBehavior
 
     function it_allows_a_reference_to_the_controller_and_action_to_be_set(){
         $this->setUrl("/users/new");
-        $this->setController("UsersController");
+        $controller = new FixtureController();
+        $this->setController($controller);
         $this->setActionName("new");
-        $this->getController()->shouldReturn('UsersController');
+        $this->getController()->shouldHaveType("FixtureController");
     }
 
+
 }
+

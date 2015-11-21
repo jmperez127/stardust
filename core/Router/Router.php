@@ -8,13 +8,14 @@ class Router {
 
     protected $routes = array();
     protected $controllers = array();
+    protected $controllersFolder = "";
 
     public function getRoutes(){
         return $this->routes;
     }
 
-    public function addRoute(Route $route){
-
+    public function addRoute(Route $route, BaseController $controller){
+        $route->setController($controller);
         $this->routes[] = $route;
     }
 

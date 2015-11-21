@@ -1,16 +1,14 @@
 <?php
 
 namespace spec\Core\Controller;
-
-
-use Core\Controller\BaseController;
+use spec\Fixtures\Controllers\FixtureController;
 
 class BaseControllerTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testControllerCanGetAllMethodsAsActions()
     {
-        $myController = new MyController();
+        $myController = new FixtureController();
         $this->assertSame($myController->getActions(), array(
             "create",
             "delete",
@@ -19,31 +17,4 @@ class BaseControllerTest extends \PHPUnit_Framework_TestCase
         ));
     }
 
-}
-
-
-class MyController extends BaseController
-{
-    public function create()
-    {
-        echo "Create Action";
-    }
-
-    public function delete()
-    {
-        echo "Delete Action";
-    }
-
-    public function update()
-    {
-        echo "Update Action";
-    }
-
-    public function custom()
-    {
-        echo "Custom Action";
-    }
-    private function privateMethod(){
-        echo "I'm private";
-    }
 }

@@ -4,3 +4,7 @@ if (!defined('PROJECT_ROOT'))
     define('PROJECT_ROOT', realpath(__DIR__ . '/..'));
 
 require_once PROJECT_ROOT."/config/start.php";
+
+
+require_once "Fixtures/Controllers/UsersController.php";
+require_once "Fixtures/Controllers/FixtureController.php";

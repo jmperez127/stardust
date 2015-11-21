@@ -1,5 +1,6 @@
 <?php
 namespace spec\Core\App;
+use Core\App\Application;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 $_SERVER["REQUEST_METHOD"] = "GET";
@@ -18,6 +19,28 @@ class ApplicationSpec extends ObjectBehavior
     function it_is_initialized_with_development_env_by_default()
     {
         $this->getEnv()->shouldReturn("development");
+    }
+
+    function it_allows_to_configure_the_project_root_path(){
+        $path = Application::getRootPath();
+        Application::setRootPath(realpath(__DIR__));
+        $this::getRootPath()->shouldReturn(realpath(__DIR__));
+        $this::setRootPath($path);
+
+    }
+
+    function it_allows_to_configure_the_app_path(){
+        $path = Application::getAppPath();
+        Application::setAppPath(realpath(__DIR__));
+        $this::getAppPath()->shouldReturn(realpath(__DIR__));
+        $this::setAppPath($path);
+    }
+
+    function it_allows_to_configure_the_controllers_path(){
+        $path = Application::getControllersPath();
+        Application::setControllersPath(realpath(__DIR__));
+        $this::getControllersPath()->shouldReturn(realpath(__DIR__));
+        $this::setControllersPath($path);
     }
 }
 
