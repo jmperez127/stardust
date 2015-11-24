@@ -1,0 +1,20 @@
+[
+  {
+    "method": "get",
+    "path": "/users/:id/edit",
+    "action": "UsersControllers#edit"
+  },
+  {
+    "resource": "posts", //index, show, new, create, destroy, edit, update
+    "nested": [
+      {
+        "resource": "comments"
+      },
+      {
+        "method": "post",
+        "path": "/posts/:id/like/",
+        "action": "PostsController#like"
+      }
+    ]
+  }
+]
