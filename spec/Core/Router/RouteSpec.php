@@ -6,7 +6,6 @@ require_once realpath(__DIR__ . '/../..')."/spec_helpers.php";
 use Core\Router;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use spec\Fixtures\TestApp\Controllers\FixtureController;
 
 class RouteSpec extends ObjectBehavior
 {

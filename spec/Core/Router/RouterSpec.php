@@ -7,7 +7,7 @@ use Core\App\Application;
 use Core\Router\Route;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use spec\Fixtures\TestApp\Controllers\UsersController;
+use spec\Fixtures\TestApp\App\Controllers\UsersController;
 
 class RouterSpec extends ObjectBehavior
 {

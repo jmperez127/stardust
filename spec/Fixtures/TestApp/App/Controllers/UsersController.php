@@ -1,8 +1,8 @@
 <?php
-namespace spec\Fixtures\TestApp\Controllers;
+namespace spec\Fixtures\TestApp\App\Controllers;
 use Core\Controller\BaseController;
 
-class FixtureController extends BaseController {
+class UsersController extends BaseController {
     public function create() {
         echo "Create Action";
     }

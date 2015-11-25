@@ -1,7 +1,8 @@
 <?php
 
 namespace spec\Core\Controller;
-use spec\Fixtures\Controllers\FixtureController;
+
+use spec\Fixtures\TestApp\App\Controllers\FixtureController;
 
 class BaseControllerTest extends \PHPUnit_Framework_TestCase
 {

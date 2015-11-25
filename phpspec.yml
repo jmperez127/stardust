@@ -12,5 +12,5 @@ suites:
         spec_prefix: spec
 
     fixtures_suite:
-        namespace: Fixtures\Controller
+        namespace: Fixtures\TestApp\Controllers
         spec_prefix: spec

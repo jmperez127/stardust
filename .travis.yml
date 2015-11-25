@@ -20,4 +20,4 @@ install:
 
 script:
   - bin/phpspec run
-  - phpunit spec
+  - bin/phpunit spec
