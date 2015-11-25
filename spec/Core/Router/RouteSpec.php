@@ -10,6 +10,9 @@ use spec\Fixtures\TestApp\Controllers\FixtureController;
 
 class RouteSpec extends ObjectBehavior
 {
+    function let(){
+        $this->beConstructedWith("GET", "/controller/action", "controller#action");
+    }
     function it_is_initializable()
     {
         $this->shouldHaveType('Core\Router\Route');

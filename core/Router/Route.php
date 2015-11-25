@@ -15,10 +15,10 @@ class Route {
     const VALID_URL_ROUTE_REGEXP = "/^(?:\/?(?:\/:[a-zA-Z0-9_]+|[a-zA-Z0-9_]+))+\/?$/";
     const VALID_ACTION_PATH = "/^(?!\d)\w+#(?!\d)\w+$/";
 
-    public function __construct($method = "", $path = "", $actionPath = "") {
+    public function __construct($method, $path, $actionPath) {
         if (!empty($method)) $this->setMethod($method);
         if (!empty($path)) $this->setPath($path);
-        if (!empty($path)) $this->setActionPath($actionPath);
+        if (!empty($actionPath)) $this->setActionPath($actionPath);
     }
 
     public function setMethod($method) {
