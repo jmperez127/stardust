@@ -2,13 +2,11 @@
 
 namespace Core\Router;
 
-use Core\Controller\BaseController;
 use InvalidArgumentException;
 
 class Route {
     protected $method;
     protected $path;
-    protected $controller;
     protected $param_names = array();
     protected $allowed_methods = array("GET", "POST", "PUT", "DELETE", "PATCH");
     protected $actionPath;
@@ -24,11 +22,11 @@ class Route {
     }
 
     public function setMethod($method) {
-        $this->validateMehtodName($method);
+        $this->validateMehtod($method);
         $this->method = $method;
     }
 
-    private function validateMehtodName($method) {
+    private function validateMehtod($method) {
         if (!in_array($method, $this->allowed_methods))
             throw new InvalidArgumentException("Invalid Method");
     }
@@ -36,6 +34,7 @@ class Route {
     public function getMethod() {
         return $this->method;
     }
+
 
     public function setPath($path) {
         $this->validatePath($path);
@@ -63,7 +62,7 @@ class Route {
     }
 
 
-    public function setActionPath($actionPath){
+    public function setActionPath($actionPath) {
         $this->validateActionPath($actionPath);
         $this->actionPath = $actionPath;
     }
@@ -73,12 +72,12 @@ class Route {
             throw new InvalidArgumentException("Invalid Route URL");
     }
 
-    public function getActionPath(){
+    public function getActionPath() {
         return $this->actionPath;
     }
 
-    public function getRouteInfo(){
-        return $this->method."\t".$this->path."\t".$this->actionPath;
+    public function getRouteInfo() {
+        return $this->method . "\t" . $this->path . "\t" . $this->actionPath;
     }
 
 }
