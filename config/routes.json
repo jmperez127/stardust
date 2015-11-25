@@ -2,7 +2,7 @@
   {
     "method": "get",
     "path": "/users/:id/edit",
-    "action": "UsersControllers#edit"
+    "action": "users#edit"
   },
   {
     "resource": "posts", //index, show, new, create, destroy, edit, update
@@ -13,7 +13,7 @@
       {
         "method": "post",
         "path": "/posts/:id/like/",
-        "action": "PostsController#like"
+        "action": "posts#like"
       }
     ]
   }

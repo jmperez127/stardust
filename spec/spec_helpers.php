@@ -6,5 +6,5 @@ if (!defined('PROJECT_ROOT'))
 require_once PROJECT_ROOT."/config/start.php";
 
 
-require_once "Fixtures/Controllers/UsersController.php";
-require_once "Fixtures/Controllers/FixtureController.php";
+require_once "Fixtures/TestApp/App/Controllers/UsersController.php";
+require_once "Fixtures/TestApp/App/Controllers/FixtureController.php";

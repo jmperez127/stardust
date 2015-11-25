@@ -6,7 +6,7 @@ require_once realpath(__DIR__ . '/../..')."/spec_helpers.php";
 use Core\Router;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use spec\Fixtures\Controllers\FixtureController;
+use spec\Fixtures\TestApp\Controllers\FixtureController;
 
 class RouteSpec extends ObjectBehavior
 {
@@ -27,29 +27,32 @@ class RouteSpec extends ObjectBehavior
         $this->shouldThrow('\InvalidArgumentException')->duringSetMethod("INVALID");
     }
 
-    function it_holds_a_url_definition(){
-        $this->setUrl("/users/new");
-        $this->getUrl()->shouldReturn("/users/new");
+    function it_holds_a_path_definition(){
+        $this->setPath("/users/new");
+        $this->getPath()->shouldReturn("/users/new");
     }
 
-    function it_throws_error_when_registering_a_wrong_url_route(){
-        $this->shouldThrow('\InvalidArgumentException')->duringSetUrl("invalid route");
+    function it_throws_an_error_when_registering_a_wrong_path(){
+        $this->shouldThrow('\InvalidArgumentException')->duringSetPath("invalid path");
     }
 
-    function it_has_an_array_of_param_names(){
-        $this->setUrl("/users/:id/post/:post_id/edit");
+    function it_has_an_array_of_param_names_for_a_given_path(){
+        $this->setPath("/users/:id/post/:post_id/edit");
         $this->getParamNames()->shouldContain(':id');
         $this->getParamNames()->shouldContain(':post_id');
     }
 
-    function it_allows_a_reference_to_the_controller_and_action_to_be_set(){
-        $this->setUrl("/users/new");
-        $controller = new FixtureController();
-        $this->setController($controller);
-        $this->setActionName("new");
-        $this->getController()->shouldHaveType("FixtureController");
+    function it_should_have_an_action_path_which_tells_which_controller_and_action_to_use(){
+        $this->setPath("/users/new");
+        $this->setMethod("GET");
+        $this->setActionPath("users#new");
+        $this->getActionPath()->shouldReturn("users#new");
+        $this->getRouteInfo()->shouldReturn("GET\t/users/new\tusers#new");
     }
 
+    function it_throws_an_error_when_registering_a_wrong_action_path(){
+        $this->shouldThrow('\InvalidArgumentException')->duringSetActionPath("user");
+    }
 
 }
 

@@ -28,19 +28,5 @@ class ApplicationSpec extends ObjectBehavior
         $this::setRootPath($path);
 
     }
-
-    function it_allows_to_configure_the_app_path(){
-        $path = Application::getAppPath();
-        Application::setAppPath(realpath(__DIR__));
-        $this::getAppPath()->shouldReturn(realpath(__DIR__));
-        $this::setAppPath($path);
-    }
-
-    function it_allows_to_configure_the_controllers_path(){
-        $path = Application::getControllersPath();
-        Application::setControllersPath(realpath(__DIR__));
-        $this::getControllersPath()->shouldReturn(realpath(__DIR__));
-        $this::setControllersPath($path);
-    }
 }
 

@@ -7,7 +7,7 @@ use Core\App\Application;
 use Core\Router\Route;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use spec\Fixtures\Controllers\UsersController;
+use spec\Fixtures\TestApp\Controllers\UsersController;
 
 class RouterSpec extends ObjectBehavior
 {
@@ -27,7 +27,7 @@ class RouterSpec extends ObjectBehavior
     }
 
     function it_should_assign_a_controller_when_a_new_route_is_created(){
-        Application::setControllersPath(realpath(__DIR__."/../../Fixtures/Controllers"));
+        Application::setRootPath(realpath(__DIR__."/../../Fixtures/TestApp"));
 
         $this->addRoute(new Route("GET", "/users/new"), new UsersController());
 

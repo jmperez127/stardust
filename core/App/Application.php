@@ -35,7 +35,7 @@ class Application {
 
         $this->app->run();
     }
-   // TODO: load this methods and paths dynamically with a config file, likely named directory mapper
+
     public static function getRootPath() {
         if (!isset(self::$root_path)) self::$root_path = realpath(__DIR__ . "/../..");
         return self::$root_path;
@@ -46,20 +46,14 @@ class Application {
     }
 
     public static function getControllersPath() {
-        if (!isset(self::$controllers_path)) self::$controllers_path = realpath(self::getAppPath() . "/controllers");
+        if (!isset(self::$controllers_path))
+            self::$controllers_path = realpath(self::getAppPath() . "/controllers");
         return self::$controllers_path;
     }
 
-    public static function setControllersPath($path) {
-        self::$controllers_path = $path;
-    }
-
     public static function getAppPath() {
-        if (!isset(self::$app_path)) self::$app_path = realpath(self::getRootPath() . "/app");
+        if (!isset(self::$app_path))
+            self::$app_path = realpath(self::getRootPath() . "/app");
         return self::$app_path;
-    }
-
-    public static function setAppPath($path) {
-        self::$app_path = $path;
     }
 }

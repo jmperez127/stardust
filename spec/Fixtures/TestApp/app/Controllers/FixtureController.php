@@ -1,5 +1,5 @@
 <?php
-namespace spec\Fixtures\Controllers;
+namespace spec\Fixtures\TestApp\Controllers;
 use Core\Controller\BaseController;
 
 class FixtureController extends BaseController {
