@@ -1,6 +1,6 @@
 <?php
-namespace spec\Core\App;
-use Core\App\Application;
+namespace spec\Stardust\App;
+use Stardust\App\Application;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 $_SERVER["REQUEST_METHOD"] = "GET";
@@ -13,7 +13,7 @@ class ApplicationSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Core\App\Application');
+        $this->shouldHaveType('Stardust\App\Application');
     }
 
     function it_is_initialized_with_development_env_by_default()

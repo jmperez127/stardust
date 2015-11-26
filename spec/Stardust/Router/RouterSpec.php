@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Core\Router;
+namespace spec\Stardust\Router;
 require_once realpath(__DIR__ . '/../..')."/spec_helpers.php";
 
-use Core\App\Application;
-use Core\Router\Route;
+use Stardust\App\Application;
+use Stardust\Router\Route;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use spec\Fixtures\TestApp\App\Controllers\UsersController;
@@ -13,7 +13,7 @@ class RouterSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Core\Router\Router');
+        $this->shouldHaveType('Stardust\Router\Router');
     }
 
     function it_holds_an_array_of_routes(){

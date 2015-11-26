@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Core\Controller;
+namespace spec\Stardust\Controller;
 
 use spec\Fixtures\TestApp\App\Controllers\FixtureController;
 

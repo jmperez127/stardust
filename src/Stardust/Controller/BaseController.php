@@ -1,5 +1,5 @@
 <?php
-namespace Core\Controller;
+namespace Stardust\Controller;
 
 abstract class BaseController
 {
@@ -11,7 +11,7 @@ abstract class BaseController
 
     protected function getControllerMethods()
     {
-        $abstractMethods = get_class_methods("Core\Controller\BaseController");
+        $abstractMethods = get_class_methods("Stardust\Controller\BaseController");
         $controllerMethods = get_class_methods($this);
         return $this->excludeAbstractMethods($abstractMethods, $controllerMethods);
     }

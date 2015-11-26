@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Src\\": "src",
+      "Stardust\\": "src/Stardust/",
       "spec\\": "spec"
     }
   },

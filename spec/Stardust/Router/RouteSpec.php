@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Core\Router;
+namespace spec\Stardust\Router;
 require_once realpath(__DIR__ . '/../..')."/spec_helpers.php";
 
-use Core\Router;
+use Stardust\Router;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -14,7 +14,7 @@ class RouteSpec extends ObjectBehavior
     }
     function it_is_initializable()
     {
-        $this->shouldHaveType('Core\Router\Route');
+        $this->shouldHaveType('Stardust\Router\Route');
     }
 
     function it_can_set_be_set_to_GET_POST_PUT_OR_DELETE_methods(){

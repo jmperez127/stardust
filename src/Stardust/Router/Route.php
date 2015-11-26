@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Router;
+namespace Stardust\Router;
 
 use InvalidArgumentException;
 

@@ -1,6 +1,6 @@
 <?php
 namespace spec\Fixtures\TestApp\App\Controllers;
-use Core\Controller\BaseController;
+use Stardust\Controller\BaseController;
 
 class UsersController extends BaseController {
     public function create() {

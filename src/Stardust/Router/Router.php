@@ -1,8 +1,8 @@
 <?php
 
-namespace Core\Router;
+namespace Stardust\Router;
 
-use Core\Controller\BaseController;
+use Stardust\Controller\BaseController;
 
 class Router {
 

@@ -1,14 +1,14 @@
 suites:
     core_app_suite:
-        namespace: Src\App
+        namespace: Stardust\App
         spec_prefix: spec
 
     core_router_suite:
-        namespace: Src\Router
+        namespace: Stardust\Router
         spec_prefix: spec
 
     core_controller_suite:
-        namespace: Src\Controller
+        namespace: Stardust\Controller
         spec_prefix: spec
 
     fixtures_suite:

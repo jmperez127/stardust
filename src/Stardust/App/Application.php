@@ -1,5 +1,5 @@
 <?php
-namespace Core\App;
+namespace Stardust\App;
 
 use Slim\Slim;
 
