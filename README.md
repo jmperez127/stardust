@@ -1,5 +1,5 @@
-## Barter site ##
-Barter site for swapping goods and items
+## Stardust Framework ##
+An easy to use mvc framework for php
 ## Code Status ##
 
-[![Build Status](https://travis-ci.org/theil/barter-site.svg?branch=master)](https://travis-ci.org/theil/barter-site)
+[![Build Status](https://travis-ci.org/theil/stardust.svg?branch=master)](https://travis-ci.org/theil/stardust)
