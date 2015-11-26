@@ -1,6 +1,6 @@
 {
-  "name": "barter-site",
-  "description": "Server-Site for bartering",
+  "name": "stardust",
+  "description": "Yet another mvc framework",
   "require": {
     "slim/slim": "2"
   },
@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Core\\": "core",
+      "Src\\": "src",
       "spec\\": "spec"
     }
   },

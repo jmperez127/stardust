@@ -1,14 +1,14 @@
 suites:
     core_app_suite:
-        namespace: Core\App
+        namespace: Src\App
         spec_prefix: spec
 
     core_router_suite:
-        namespace: Core\Router
+        namespace: Src\Router
         spec_prefix: spec
 
     core_controller_suite:
-        namespace: Core\Controller
+        namespace: Src\Controller
         spec_prefix: spec
 
     fixtures_suite:
